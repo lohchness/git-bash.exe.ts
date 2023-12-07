@@ -1,7 +1,11 @@
 import config from '../../../config.json';
+let s:boolean = true;
 
 const sumfetch = async (args: string[]): Promise<string> => {
-  if (config.ascii === 'cveinnt') {
+
+//   if (config.ascii === 'cveinnt') {
+    if (s) {
+    s = false;
     return `                                                  
              @@@@@@@@@@@@@                   sumfetch: summary display
         @@@@               @@@@             -----------
@@ -17,11 +21,12 @@ const sumfetch = async (args: string[]): Promise<string> => {
    @@          @@@     @@         @@         <u><a href="https://linkedin.com/in/${config.social.linkedin}" target="_blank">linkedin.com/in/${config.social.linkedin}</a></u>
      @@@                        @@@         -----------
         @@@                  @@@ @@         OTHERS 
-         @|  @@@@@@@@@@@@@@@@   @@          <u><a href="${config.other_urls.spotify}" target="_blank">${config.other_urls.spotify}</a></u>
-         @|                      @@         <u><a href="${config.other_urls.strava}" target="_blank">${config.other_urls.strava}</a></u>
+         @|  @@@@@@@@@@@@@@@@   @@          <u><a href="${config.other_urls.spotify}" target="_blank">playlist</a></u>
+         @|                      @@         <u><a href="${config.other_urls.strava}" target="_blank">strava</a></u>
 
 `;
   } else {
+    s = true;
     return `
            ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▄                  sumfetch
         ▄▓▓▀ ▄▓▓▀▓▓▓▀▓▓▄ ▀▀▓▓▄              -----------
@@ -36,8 +41,8 @@ const sumfetch = async (args: string[]): Promise<string> => {
    ▓▓      ▐▓▓    ▓▓    ▐▓▓     ▓▓           <u><a href="https://linkedin.com/in/${config.social.linkedin}" target="_blank">linkedin.com/in/${config.social.linkedin}</a></u>
     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓           -----------
       ▓▓▓   ▐▓▓   ▓▓   ▓▓▓   ▓▓▀            OTHERS 
-        ▀▓▓▄▄ ▀▓▓▄▓▓▄▓▓▓▄▄▓▓▀               <u><a href="${config.other_urls.spotify}" target="_blank">${config.other_urls.spotify}</a></u>
-            ▀▓▓▓▓▓▓▓▓▓▓▓▀▀                  <u><a href="${config.other_urls.strava}" target="_blank">${config.other_urls.strava}</a></u>
+        ▀▓▓▄▄ ▀▓▓▄▓▓▄▓▓▓▄▄▓▓▀               <u><a href="${config.other_urls.spotify}" target="_blank">playlist</a></u>
+            ▀▓▓▓▓▓▓▓▓▓▓▓▀▀                  <u><a href="${config.other_urls.strava}" target="_blank">strava</a></u>
 
 `;
   }
