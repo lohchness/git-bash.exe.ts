@@ -1,20 +1,20 @@
 {
-  "readmeUrl": "https://raw.githubusercontent.com/cveinnt/cveinnt/master/README.md",
+  "readmeUrl": "https://raw.githubusercontent.com/lohchness/lohchness/main/README_santizied.md",
   "title": "LiveTerm",
-  "name": "John Doe",
+  "name": "Lok / Tom Chow",
   "ascii": "liveterm",
   "social": {
-    "github": "github",
-    "linkedin": "linkedin"
+    "github": "lohchness",
+    "linkedin": "lohchness"
   },
-  "email": "contact@email.com",
-  "ps1_hostname": "liveterm",
+  "email": "lhchow02@gmail.com",
+  "ps1_hostname": "lohchness",
   "ps1_username": "visitor",
-  "repo": "https://github.com/Cveinnt/LiveTerm",
-  "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
-  "donate_urls": {
-    "paypal": "https://paypal.me/cveinnt",
-    "patreon": "https://patreon.com/cveinnt"
+  "repo": "https://github.com/lohchness/terminal-website",
+  "resume_url": "https://github.com/lohchness/lohchness/blob/main/Resume.pdf",
+  "other_urls": {
+    "spotify": "https://open.spotify.com/track/16mWm9eOeEeUQku9OLp29t?si=4fd79f221e7d49fa",
+    "strava": "https://www.strava.com/athletes/113115417"
   },
   "colors": {
     "light": {
