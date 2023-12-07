@@ -113,7 +113,7 @@ export const cd = async (args: string[]): Promise<string> => {
 };
 
 export const date = async (args: string[]): Promise<string> => {
-  return new Date().toString();
+  return 'Sure!... Oh, I mean - yes, of course:\n' + new Date().toString();
 };
 
 export const vi = async (args: string[]): Promise<string> => {
@@ -137,23 +137,43 @@ export const emacs = async (args?: string[]): Promise<string> => {
 //   return `Permission denied: with little power comes... no responsibility? `;
 // };
 
-export const clear = async(args: string[]): Promise<string> => {
-    return;
-};
+// export const clear = async(args: string[]): Promise<string> => {
+//     return;
+// };
+
+export const website = async(args: string[]): Promise<string> => {
+    window.open(`https://lohchness.github.io//`);
+    
+    return 'Opening other website...';
+}
 
 // Banner
 export const banner = (args?: string[]): string => {
   return `
 
-   ██▓     ▒█████   ██ ▄█▀ ██▓
-  ▓██▒    ▒██▒  ██▒ ██▄█▒ ▓██▒
-  ▒██░    ▒██░  ██▒▓███▄░ ▒██▒
-  ▒██░    ▒██   ██░▓██ █▄ ░██░
-  ░██████▒░ ████▓▒░▒██▒ █▄░██░
-  ░ ▒░▓  ░░ ▒░▒░▒░ ▒ ▒▒ ▓▒░▓  
-  ░ ░ ▒  ░  ░ ▒ ▒░ ░ ░▒ ▒░ ▒ ░
-    ░ ░   ░ ░ ░ ▒  ░ ░░ ░  ▒ ░
-      ░  ░    ░ ░  ░  ░    ░  
+     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░                                ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░
+      ▓██████████████████▒                                  ▓███████████████████▒
+       ▒██▓▓▓▓▓▓▓▓▓▓▓▓██                                    ▒██▓▓▓▓▓▓▓▓▓▓▓▓▓██
+        ▓██▓▓▓▓▓▓▓▓▓▓██░                                      ▓██▓▓▓▓▓▓▓▓▓▓▓██░
+        ▒▓▓███▓██▓███▓▓                                       ▒▓▓███▓██▓███▓▓
+           ██▓ ██ ▓██▓                                           ██▓ ██ ▓██
+           ██▓ ██ ▓██▓       ██▓     ▒█████   ██ ▄█▀ ██▓          ██▓ ██ ▓██
+           ██▓ ██ ▓██▓      ▓██▒    ▒██▒  ██▒ ██▄█▒ ▓██▒         ██▓ ██ ▓██
+           ██▓ ██ ▓██▓      ▒██░    ▒██░  ██▒▓███▄░ ▒██▒         ██▓ ██ ▓██
+           ██▓ ██ ▓██▓      ▒██░    ▒██   ██░▓██ █▄ ░██░         ██▓ ██ ▓██
+           ██▓ ██ ▓██▓      ░██████▒░ ████▓▒░▒██▒ █▄░██░        ██▓ ██ ▓██
+           ██▓ ██ ▓██▓      ░ ▒░▓  ░░ ▒░▒░▒░ ▒ ▒▒ ▓▒░▓           ██▓ ██ ▓██
+           ██▓ ██ ▓██▓      ░ ░ ▒  ░  ░ ▒ ▒░ ░ ░▒ ▒░ ▒ ░         ██▓ ██ ▓██
+           ██▓ ██ ▓██▓          ░ ░   ░ ░ ░ ▒  ░ ░░ ░  ▒ ░       ██▓ ██ ▓██
+           ██▓ ██ ▓██▓          ░  ░    ░ ░  ░  ░    ░           ██▓ ██ ▓██
+           ██▓ ██ ▓██▓                              ░            ██▓ ██ ▓██
+           ██▓ ██ ▓██▓        ░         ░                        ██▓ ██ ▓██
+           ██▓ ██ ▓██▓                 ░              ░          ██▓ ██ ▓██
+           ██▓ ██ ▓██▓          ░      ░                         ██▓ ██ ▓██
+      ████████████████████                                  ████████████████████
+      █████▓████▓███▓█████                                  █████▓███▓████▓█████
+      ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██                                  ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██
+    ████████████████████████                              ████████████████████████
 
 Type 'help' to see the list of available commands.
 Type 'sumfetch' to display summary.
