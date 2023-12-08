@@ -223,18 +223,18 @@ export const glyph = (args?: string[]): string => {
                        &@(     *@@@@        &@@@@      @@                       
                      ,@@@      @@@@@        &@@@@       @@@                     
                     @@@@@      @@@@@         @@@@#      @@@@/                   
-                   @@@@@#     ,@@@@@         @@@@#      @@@@@                   
-                   @@@#       ,@@@@@  @   @  @@@@@@        @@@                   
+                   @@@@@@@    ,@@@@@         @@@@#     @@@@@@                   
+                   @@@#       ,@@@@@  @   @  @@@@@@      #@@@@                   
                               ,@@@@@@@    @@@@@@@@                              
                                 @@@@        /@@@            
                                
                                       You
                                Always about dreams
                                  My soul weeps
-                             Farewell, weeping soul
-                                    My dreams
-                                  About, always
-                                       You
+                                    Farewell
+                                  weeping soul
+                             My dreams about, always
+                                      You
 `
 
 };
