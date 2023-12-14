@@ -21,8 +21,8 @@ const neofetch = async (args: string[]): Promise<string> => {
    @@          @@@     @@         @@         <u><a href="https://linkedin.com/in/${config.social.linkedin}" target="_blank">linkedin.com/in/${config.social.linkedin}</a></u>
      @@@                        @@@         -----------
         @@@                  @@@ @@         OTHERS 
-         @|  @@@@@@@@@@@@@@@@   @@          <u><a href="${config.other_urls.spotify}" target="_blank">playlist</a></u>
-         @|                      @@         <u><a href="${config.other_urls.strava}" target="_blank">strava</a></u>
+         @|  @@@@@@@@@@@@@@@@   @@          <u><a href="${config.other_urls.spotify}" target="_blank">My spotify!</a></u>
+         @|                      @@         <u><a href="${config.other_urls.strava}" target="_blank">My strava!</a></u>
 
 `;
   } else {
@@ -41,8 +41,8 @@ const neofetch = async (args: string[]): Promise<string> => {
    ▓▓      ▐▓▓    ▓▓    ▐▓▓     ▓▓           <u><a href="https://linkedin.com/in/${config.social.linkedin}" target="_blank">linkedin.com/in/${config.social.linkedin}</a></u>
     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓           -----------
       ▓▓▓   ▐▓▓   ▓▓   ▓▓▓   ▓▓▀            OTHERS 
-        ▀▓▓▄▄ ▀▓▓▄▓▓▄▓▓▓▄▄▓▓▀               <u><a href="${config.other_urls.spotify}" target="_blank">playlist</a></u>
-            ▀▓▓▓▓▓▓▓▓▓▓▓▀▀                  <u><a href="${config.other_urls.strava}" target="_blank">strava</a></u>
+        ▀▓▓▄▄ ▀▓▓▄▓▓▄▓▓▓▄▄▓▓▀               <u><a href="${config.other_urls.spotify}" target="_blank">My spotify!</a></u>
+            ▀▓▓▓▓▓▓▓▓▓▓▓▀▀                  <u><a href="${config.other_urls.strava}" target="_blank">My strava!</a></u>
 
 `;
   }

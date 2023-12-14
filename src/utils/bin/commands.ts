@@ -145,9 +145,13 @@ export const emacs = async (args?: string[]): Promise<string> => {
 // };
 
 export const website = async(args: string[]): Promise<string> => {
-    window.open(`https://lohchness.github.io//`);
-    
+    window.open(`https://lohchness.github.io/`);
     return 'Opening other website...';
+}
+
+export const spotify = async(args: string[]): Promise<string> => {
+    window.open(`https://open.spotify.com/playlist/41jP5SGBU7RScwKA8cZIQa?si=5d0a5f7c43454dab/`);
+    return 'Opening my playlist!';
 }
 
 // Banner
@@ -240,6 +244,58 @@ export const glyph = (args?: string[]): string => {
                                       You
 `
 
+};
+
+export const cat = async (args?: string[]): Promise<string> => {
+    return `meow :3`;
+};
+
+const songs = [
+    { name: 'mflo - Cosmic Night Run ', file:'music1.mp3' },
+    { name: 'The Birthday Massacre - One ', file:'music2.mp3' },
+    { name: 'GUNSHIP - Thrasher ', file:'music5.mp3' },
+    { name: 'julie - lochness ', file:'music6.mp3' }
+  
+    // add more songs here
+];
+
+export const radio = async (args: string[]): Promise<string> => {
+    const index = Math.floor(Math.random() * songs.length);
+    const song = songs[index];
+    audio = new Audio(song.file);
+    audio.play();
+    return `Now playing: ${song.name} ... (please do not enter radio a second time - its breaking the music) \n use command radiostop to stop the music`;
+};
+
+export const radionext = async(args: string[]): Promise<string> => {
+    return;
+};
+
+export const radiostop = async (args: string[]): Promise<string> => {
+    const index = Math.floor(Math.random() * songs.length);
+    const song = songs[index];
+    if (audio && !audio.paused) {
+      audio.pause();
+      audio.src = '';
+      audio.load();
+      audio = new Audio(song.file);
+      return `Music stopped.`;
+    } else {
+      return `Music is not currently playing.`;
+    }
+};
+
+  export const radioremove = async (args: string[]): Promise<string> => {
+    if (audio) {
+      audio.pause();
+      audio.src = '';
+      audio.load();
+      audio.parentNode?.removeChild(audio);
+      audio = null;
+      return `Music element removed.`;
+    } else {
+      return `Music is not currently playing.`;
+    }
 };
 
 
