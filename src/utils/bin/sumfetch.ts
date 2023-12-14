@@ -1,13 +1,13 @@
 import config from '../../../config.json';
 let s:boolean = true;
 
-const sumfetch = async (args: string[]): Promise<string> => {
+const neofetch = async (args: string[]): Promise<string> => {
 
 //   if (config.ascii === 'cveinnt') {
     if (s) {
     s = false;
     return `                                                  
-             @@@@@@@@@@@@@                   sumfetch: summary display
+             @@@@@@@@@@@@@                   Loki
         @@@@               @@@@             -----------
       @@                       @@            ABOUT
     @@                           @@          ${config.name}
@@ -28,7 +28,7 @@ const sumfetch = async (args: string[]): Promise<string> => {
   } else {
     s = true;
     return `
-           ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▄                  sumfetch
+           ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▄                  Loki
         ▄▓▓▀ ▄▓▓▀▓▓▓▀▓▓▄ ▀▀▓▓▄              -----------
       ▓▓▀  ▄▓▀   ▐▓▓  ▀▓▓    ▓▓▄             ABOUT
     ▄▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓            ${config.name}
@@ -48,4 +48,4 @@ const sumfetch = async (args: string[]): Promise<string> => {
   }
 };
 
-export default sumfetch;
+export default neofetch;

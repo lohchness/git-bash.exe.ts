@@ -7,7 +7,7 @@ Based on M4TT72's [terminal](https://github.com/m4tt72/terminal).
 Requires `yarn` package manager to run on your machine.
 
 ```bash
-sh -c "$(curl -fsSL https://raw.github.com/lohchness/terminal-website/main/install/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/lohchness/git-bash.exe.ts/main/install/install.sh)"
 ```
 
 ```bash

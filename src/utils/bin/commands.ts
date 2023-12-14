@@ -2,6 +2,8 @@
 
 import * as bin from './index';
 import config from '../../../config.json';
+let audio: HTMLAudioElement;
+
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
@@ -18,7 +20,7 @@ export const help = async (args: string[]): Promise<string> => {
 \n${c}\n
 [tab]: trigger completion.
 [ctrl+l]/clear: clear terminal.\n
-Type 'sumfetch' to display summary.
+Type 'neofetch' to display summary.
 `;
 };
 
@@ -34,7 +36,7 @@ export const about = async (args: string[]): Promise<string> => {
 Welcome to this website!
 More about me:
 'github' - my coding repository
-'sumfetch' - short summary.
+'neofetch' - short summary.
 'resume' - my latest resume.
 'readme' - my github readme.`;
 };
@@ -176,7 +178,7 @@ export const banner = (args?: string[]): string => {
 
 Type 'help' to see the list of available commands.
 Type 'github' to see my coding repository.
-Type 'sumfetch' to display summary.
+Type 'neofetch' to display summary.
 Type 'website' to open my other website.
 Type 'readme' for a short introduction.
 Type 'repo' or click <u><a class="text-light-blue dark:text-dark-blue underline" href="${config.repo}" target="_blank">here</a></u> for the Github repository.
