@@ -4,6 +4,9 @@ import * as bin from './index';
 import config from '../../../config.json';
 let audio: HTMLAudioElement;
 
+let radioOn:boolean = false;
+let currTrack = -1;
+let index = 0;
 
 // Help
 export const help = async (args: string[]): Promise<string> => {
@@ -251,52 +254,106 @@ export const cat = async (args?: string[]): Promise<string> => {
 };
 
 const songs = [
+    { name: 'julie - lochness ', file:'music6.mp3' },
     { name: 'mflo - Cosmic Night Run ', file:'music1.mp3' },
     { name: 'The Birthday Massacre - One ', file:'music2.mp3' },
-    { name: 'GUNSHIP - Thrasher ', file:'music5.mp3' },
-    { name: 'julie - lochness ', file:'music6.mp3' }
+    { name: 'GUNSHIP - Thrasher ', file:'music5.mp3' }
   
     // add more songs here
 ];
 
+export const radiolist = async(args: string[]): Promise<string> => {
+    const songNames = songs.map(song => song.name);
+    const result = songNames.join('\n');
+    return result;
+}
+
 export const radio = async (args: string[]): Promise<string> => {
-    const index = Math.floor(Math.random() * songs.length);
-    const song = songs[index];
-    audio = new Audio(song.file);
-    audio.play();
-    return `Now playing: ${song.name} ... (please do not enter radio a second time - its breaking the music) \n use command radiostop to stop the music`;
+
+    if (!radioOn || (audio && audio.ended)) {
+        // const index = Math.floor(Math.random() * songs.length);
+        currTrack = index % songs.length;
+        index++;
+        const song = songs[currTrack];
+        audio = new Audio(song.file);
+        audio.play();
+        radioOn = true;
+        return `Now playing: ${song.name} ...
+- 'radionext' to play next track
+- 'radiopause' to play/pause the music
+- 'radiolist' to see list`;
+    }
+
+    return `Radio is initialized, use 'radionext' or 'radiopause'`;
 };
 
 export const radionext = async(args: string[]): Promise<string> => {
-    return;
-};
 
-export const radiostop = async (args: string[]): Promise<string> => {
-    const index = Math.floor(Math.random() * songs.length);
-    const song = songs[index];
-    if (audio && !audio.paused) {
-      audio.pause();
-      audio.src = '';
-      audio.load();
-      audio = new Audio(song.file);
-      return `Music stopped.`;
-    } else {
-      return `Music is not currently playing.`;
-    }
-};
-
-  export const radioremove = async (args: string[]): Promise<string> => {
+    // remove radio here
     if (audio) {
-      audio.pause();
-      audio.src = '';
-      audio.load();
-      audio.parentNode?.removeChild(audio);
-      audio = null;
-      return `Music element removed.`;
-    } else {
-      return `Music is not currently playing.`;
+        audio.pause();
+        audio.src = '';
+        audio.load();
+        audio.parentNode?.removeChild(audio);
+        audio = null;
+        radioOn = false;
     }
+    
+    currTrack = index % songs.length;
+    index++;
+    const song = songs[currTrack];
+    audio = new Audio(song.file);
+    audio.play();
+    radioOn = true;
+    return `Now playing: ${song.name} ...
+- 'radionext' to play next track
+- 'radiopause' to play/pause the music
+- 'radiolist' to see list`;
 };
+
+export const radiopause = async(args: string[]): Promise<string> => {
+    if (audio) {
+        if (audio.paused) {
+            audio.play();
+            return `Radio playing.`;
+        }
+        else {
+            audio.pause();
+            return `Radio paused.`;
+        }
+    }
+    return;
+}
+
+// export const radiostop = async (args: string[]): Promise<string> => {
+//     const index = Math.floor(Math.random() * songs.length);
+//     const song = songs[index];
+//     if (audio && !audio.paused) {
+//       audio.pause();
+//       audio.src = '';
+//       audio.load();
+//       audio.parentNode?.removeChild(audio);
+//       audio = null;
+//       audio = new Audio(song.file);
+//       return `Music stopped.`;
+//     } else {
+//       return `Music is not currently playing.`;
+//     }
+// };
+
+//   export const radioremove = async (args: string[]): Promise<string> => {
+//     if (audio) {
+//       audio.pause();
+//       audio.src = '';
+//       audio.load();
+//       audio.parentNode?.removeChild(audio);
+//       audio = null;
+//       radioOn = false;
+//       return `Music element removed.`;
+//     } else {
+//       return `Music is not currently playing.`;
+//     }
+// };
 
 
 // export const font = (args?: string[]): Promise<string> => {
