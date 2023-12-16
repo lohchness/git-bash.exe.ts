@@ -4,22 +4,34 @@ import * as bin from './index';
 import config from '../../../config.json';
 let audio: HTMLAudioElement;
 
-let radioOn:boolean = false;
+let radioOn: boolean = false;
 let currTrack = -1;
 let index = 0;
 
+
+
+function validSearchTerm(array: string[]) {
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        if (element.match(/^[0-9a-zA-Z]+$/)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // Help
 export const help = async (args: string[]): Promise<string> => {
-  const commands = Object.keys(bin).sort().join(', ');
-  var c = '';
-  for (let i = 1; i <= Object.keys(bin).sort().length; i++) {
-    if (i % 7 === 0) {
-      c += Object.keys(bin).sort()[i - 1] + '\n';
-    } else {
-      c += Object.keys(bin).sort()[i - 1] + ' ';
+    const commands = Object.keys(bin).sort().join(', ');
+    var c = '';
+    for (let i = 1; i <= Object.keys(bin).sort().length; i++) {
+        if (i % 7 === 0) {
+            c += Object.keys(bin).sort()[i - 1] + '\n';
+        } else {
+            c += Object.keys(bin).sort()[i - 1] + ' ';
+        }
     }
-  }
-  return `Welcome! Here are all the available commands:
+    return `Welcome! Here are all the available commands:
 \n${c}\n
 [tab]: trigger completion.
 [ctrl+l]/clear: clear terminal.\n
@@ -29,13 +41,15 @@ Type 'neofetch' to display summary.
 
 // Redirection
 export const repo = async (args: string[]): Promise<string> => {
-  window.open(`${config.repo}`);
-  return 'Opening Github repository...';
+    setTimeout(() => {
+        window.open(`${config.repo}`);
+    }, 1);
+    return 'Opening Github repository...';
 };
 
 // About
 export const about = async (args: string[]): Promise<string> => {
-  return `Hi, I am ${config.name}. 
+    return `Hi, I am ${config.name}. 
 Welcome to this website!
 More about me:
 'github' - my coding repository
@@ -45,8 +59,10 @@ More about me:
 };
 
 export const resume = async (args: string[]): Promise<string> => {
-  window.open(`${config.resume_url}`);
-  return 'Opening resume...';
+    setTimeout(() => {
+        window.open(`${config.resume_url}`);
+    }, 1);
+    return 'Opening resume...';
 };
 
 // Donate
@@ -60,36 +76,63 @@ export const resume = async (args: string[]): Promise<string> => {
 
 // Contact
 export const email = async (args: string[]): Promise<string> => {
-  window.open(`mailto:${config.email}`);
-  return `Opening mailto:${config.email}...`;
+    setTimeout(() => {
+        window.open(`mailto:${config.email}`);
+    }, 1);
+    return `Opening mailto:${config.email}...`;
 };
 
 export const github = async (args: string[]): Promise<string> => {
-  window.open(`https://github.com/${config.social.github}/`);
-
-  return 'Opening github...';
+    setTimeout(() => {
+        window.open(`https://github.com/${config.social.github}/`);
+    }, 1);
+    return 'Opening github...';
 };
 
 export const linkedin = async (args: string[]): Promise<string> => {
-  window.open(`https://www.linkedin.com/in/${config.social.linkedin}/`);
-
-  return 'Opening linkedin...';
+    setTimeout(() => {
+        window.open(`https://www.linkedin.com/in/${config.social.linkedin}/`);
+    }, 1);
+    return 'Opening linkedin...';
 };
 
 // Search
 export const google = async (args: string[]): Promise<string> => {
-  window.open(`https://google.com/search?q=${args.join(' ')}`);
-  return `Searching google for ${args.join(' ')}...`;
+
+    if (args.length == 0 || !validSearchTerm(args)) {
+        return `Usage: google [query]`;
+    }
+
+    setTimeout(() => {
+        window.open(`https://google.com/search?q=${args.join(' ')}`);
+    }, 1);
+    return `Searching google for ${args.join(' ')}...`;
 };
 
 export const duckduckgo = async (args: string[]): Promise<string> => {
-  window.open(`https://duckduckgo.com/?q=${args.join(' ')}`);
-  return `Searching duckduckgo for ${args.join(' ')}...`;
+
+    if (args.length == 0 || !validSearchTerm(args)) {
+        return `Usage: duckduckgo [query]`;
+    }
+
+    setTimeout(() => {
+        window.open(`https://duckduckgo.com/?q=${args.join(' ')}`);
+    }, 1);
+
+    return `Searching duckduckgo for ${args.join(' ')}...`;
 };
 
 export const bing = async (args: string[]): Promise<string> => {
-  window.open(`https://bing.com/search?q=${args.join(' ')}`);
-  return `Wow, really? You are using bing for ${args.join(' ')}?`;
+
+    if (args.length == 0 || !validSearchTerm(args)) {
+        return `Usage: bing [query]`;
+    }
+
+    setTimeout(() => {
+        window.open(`https://bing.com/search?q=${args.join(' ')}`);
+
+    }, 1);
+    return `Wow, really? Are you really using bing for ${args.join(' ')}?`;
 };
 
 // export const reddit = async (args: string[]): Promise<string> => {
@@ -99,15 +142,15 @@ export const bing = async (args: string[]): Promise<string> => {
 
 // Typical linux commands
 export const echo = async (args: string[]): Promise<string> => {
-  return args.join(' ');
+    return args.join(' ');
 };
 
 export const whoami = async (args: string[]): Promise<string> => {
-  return `${config.ps1_username}`;
+    return `${config.ps1_username}`;
 };
 
 export const ls = async (args: string[]): Promise<string> => {
-  return `a
+    return `a
 bunch
 of
 fake
@@ -115,27 +158,27 @@ directories`;
 };
 
 export const cd = async (args: string[]): Promise<string> => {
-  return `unfortunately, i cannot afford more directories.`;
+    return `unfortunately, i cannot afford more directories.`;
 };
 
 export const date = async (args: string[]): Promise<string> => {
-  return 'Sure!... Oh, I mean - yes, of course:\n' + new Date().toString();
+    return 'Sure!... Oh, I mean - yes, of course:\n' + new Date().toString();
 };
 
 export const vi = async (args: string[]): Promise<string> => {
-  return `woah, you still use 'vi'? just try 'vim'.`;
+    return `woah, you still use 'vi'? just try 'vim'.`;
 };
 
 export const vim = async (args: string[]): Promise<string> => {
-  return `'vim' is so outdated. how about 'nvim'?`;
+    return `'vim' is so outdated. how about 'nvim'?`;
 };
 
 export const nvim = async (args: string[]): Promise<string> => {
-  return `'nvim'? too fancy. why not 'emacs'?`;
+    return `'nvim'? too fancy. why not 'emacs'?`;
 };
 
 export const emacs = async (args?: string[]): Promise<string> => {
-  return `you know what? just use vscode.`;
+    return `you know what? just use vscode.`;
 };
 
 // export const sudo = async (args?: string[]): Promise<string> => {
@@ -147,19 +190,23 @@ export const emacs = async (args?: string[]): Promise<string> => {
 //     return;
 // };
 
-export const website = async(args: string[]): Promise<string> => {
-    window.open(`https://lohchness.github.io/`);
+export const website = async (args: string[]): Promise<string> => {
+    setTimeout(() => {
+        window.open(`https://lohchness.github.io/`);
+    }, 1);
     return 'Opening other website...';
 }
 
-export const spotify = async(args: string[]): Promise<string> => {
-    window.open(`https://open.spotify.com/playlist/41jP5SGBU7RScwKA8cZIQa?si=5d0a5f7c43454dab/`);
+export const spotify = async (args: string[]): Promise<string> => {
+    setTimeout(() => {
+        window.open(`https://open.spotify.com/playlist/41jP5SGBU7RScwKA8cZIQa?si=5d0a5f7c43454dab/`);
+    }, 1);
     return 'Opening my playlist!';
 }
 
 // Banner
 export const banner = (args?: string[]): string => {
-  return `
+    return `
 
      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░                                ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░
       ▓██████████████████▒          B A N N E R             ▓███████████████████▒
@@ -254,15 +301,15 @@ export const cat = async (args?: string[]): Promise<string> => {
 };
 
 const songs = [
-    { name: 'julie - lochness ', file:'music6.mp3' },
-    { name: 'mflo - Cosmic Night Run ', file:'music1.mp3' },
-    { name: 'The Birthday Massacre - One ', file:'music2.mp3' },
-    { name: 'GUNSHIP - Thrasher ', file:'music5.mp3' }
-  
+    { name: 'julie - lochness ', file: 'music6.mp3' },
+    { name: 'mflo - Cosmic Night Run ', file: 'music1.mp3' },
+    { name: 'The Birthday Massacre - One ', file: 'music2.mp3' },
+    { name: 'GUNSHIP - Thrasher ', file: 'music5.mp3' }
+
     // add more songs here
 ];
 
-export const radiolist = async(args: string[]): Promise<string> => {
+export const radiolist = async (args: string[]): Promise<string> => {
     const songNames = songs.map(song => song.name);
     const result = songNames.join('\n');
     return result;
@@ -287,7 +334,7 @@ export const radio = async (args: string[]): Promise<string> => {
     return `Radio is initialized, use 'radionext' or 'radiopause'`;
 };
 
-export const radionext = async(args: string[]): Promise<string> => {
+export const radionext = async (args: string[]): Promise<string> => {
 
     // remove radio here
     if (audio) {
@@ -298,7 +345,7 @@ export const radionext = async(args: string[]): Promise<string> => {
         audio = null;
         radioOn = false;
     }
-    
+
     currTrack = index % songs.length;
     index++;
     const song = songs[currTrack];
@@ -311,7 +358,7 @@ export const radionext = async(args: string[]): Promise<string> => {
 - 'radiolist' to see list`;
 };
 
-export const radiopause = async(args: string[]): Promise<string> => {
+export const radiopause = async (args: string[]): Promise<string> => {
     if (audio) {
         if (audio.paused) {
             audio.play();
